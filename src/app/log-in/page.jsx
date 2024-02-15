@@ -26,22 +26,6 @@ const Page = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      const { user, session, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-
-      if (error) {
-        console.error("Google login error:", error.message);
-      } else {
-        console.log("Google login successful");
-      }
-    } catch (error) {
-      console.error("Google login error:", error.message);
-    }
-  };
-
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="bg-white rounded-lg shadow-lg p-8 w-96">
@@ -71,14 +55,6 @@ const Page = () => {
               className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition duration-200"
             >
               Login
-            </button>
-          </div>
-          <div>
-            <button
-              onClick={handleGoogleLogin}
-              className="w-full bg-red-500 text-white py-3 rounded-md hover:bg-red-600 transition duration-200"
-            >
-              Login with Google
             </button>
           </div>
         </form>

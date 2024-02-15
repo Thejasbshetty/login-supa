@@ -30,22 +30,6 @@ const Signup = () => {
     }
   };
 
-  const handleGoogleSignup = async () => {
-    try {
-      const { user, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-
-      if (error) {
-        console.error("Google login error:", error.message);
-      } else {
-        console.log("Google login successful");
-      }
-    } catch (error) {
-      console.error("Google login error:", error.message);
-    }
-  };
-
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="bg-white rounded-lg shadow-lg p-8 w-96">
@@ -77,14 +61,7 @@ const Signup = () => {
               {isLoading ? "Signing Up..." : "Sign Up"}
             </button>
           </div>
-          <div>
-            <button
-              onClick={handleGoogleSignup}
-              className="w-full bg-red-500 text-white py-3 rounded-md hover:bg-red-600 transition duration-200"
-            >
-             {isLoading ? "Signing Up..." : "Sign Up with Google"}
-            </button>
-          </div>
+          
         </form>
         <p className="mt-6 text-center text-black font-bold">
           Already have an account?{" "}
